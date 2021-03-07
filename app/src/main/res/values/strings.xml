@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">PEC1Application</string>
+    <string name="app_name">PEC1</string>
+    <string name="details_about_item">Details about Item:</string>
+    <string name="more_details_information_here">More details information here.</string>
 </resources>
