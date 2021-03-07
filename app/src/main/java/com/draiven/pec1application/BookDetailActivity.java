@@ -16,9 +16,23 @@ public class BookDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_detail);
 
-        TextView textId = findViewById(R.id.book_detail_id);
-        mItem = BookContent.ITEM_MAP.get(getIntent().getStringExtra("item_id"));
-        textId.setText(getIntent().getStringExtra("item_id"));
+//        TextView textId = findViewById(R.id.book_detail_id);
+//        mItem = BookContent.ITEM_MAP.get(getIntent().getStringExtra("item_id"));
+//        textId.setText(getIntent().getStringExtra("item_id"));
+
+
+        if (savedInstanceState == null) {
+            // Create the detail fragment and add it to the activity
+            // using a fragment transaction.
+            Bundle arguments = new Bundle();
+            arguments.putString(BookDetailFragment.ARG_ITEM_ID,
+                    getIntent().getStringExtra(BookDetailFragment.ARG_ITEM_ID));
+            BookDetailFragment fragment = new BookDetailFragment();
+            fragment.setArguments(arguments);
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.book_detail_container, fragment)
+                    .commit();
+        }
 
     }
 }

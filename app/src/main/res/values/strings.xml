@@ -2,4 +2,6 @@
     <string name="app_name">PEC1</string>
     <string name="details_about_item">Details about Item:</string>
     <string name="more_details_information_here">More details information here.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
