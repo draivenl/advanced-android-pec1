@@ -4,4 +4,5 @@
     <string name="more_details_information_here">More details information here.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="snapshot">Snapshot</string>
 </resources>

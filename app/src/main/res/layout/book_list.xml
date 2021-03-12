@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.recyclerview.widget.RecyclerView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/book_list"
+    android:name="com.draiven.masterdetailapplication.BookListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".BookListActivity">
-    <LinearLayout
-        android:id="@+id/book_list_linear_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ListView
-            android:id="@+id/book_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            </ListView>
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    app:layoutManager="LinearLayoutManager"
+    tools:context=".BookListActivity"
+    tools:listitem="@layout/item_list_content" />

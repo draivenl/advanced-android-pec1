@@ -7,4 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".BookListActivity">
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <include layout="@layout/book_list" />
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

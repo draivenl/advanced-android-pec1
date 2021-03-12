@@ -10,18 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.draiven.pec1application.model.BookContent;
+import com.draiven.pec1application.model.BookModel;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BookDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.text.DateFormat;
+
+
 public class BookDetailFragment extends Fragment {
 
     public static final String ARG_ITEM_ID = "item_id";
 
-    private BookContent.BookItem mItem;
+    private BookModel.BookItem mItem;
 
     public BookDetailFragment() {
         // Required empty public constructor
@@ -34,7 +33,13 @@ public class BookDetailFragment extends Fragment {
             // Load the dummy content specified by the fragment
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
-            mItem = BookContent.ITEM_MAP.get(getArguments().getString(ARG_ITEM_ID));
+            mItem = BookModel.ITEM_MAP.get(String.valueOf(getArguments().getInt(ARG_ITEM_ID)));
+
+            Activity activity = this.getActivity();
+            CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById(R.id.toolbar_layout);
+            if (appBarLayout != null) {
+                appBarLayout.setTitle(mItem.titulo);
+            }
         }
     }
 
@@ -46,7 +51,11 @@ public class BookDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.details);
+            android.text.format.DateFormat df = new android.text.format.DateFormat();
+            ((TextView) rootView.findViewById(R.id.book_title)).setText(mItem.titulo);
+            ((TextView) rootView.findViewById(R.id.book_author)).setText(mItem.autor);
+            ((TextView) rootView.findViewById(R.id.book_date)).setText(df.format("dd/MM/yyyy", mItem.fechaPublicacion));
+            ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.descripcion);
         }
         return rootView;
     }
