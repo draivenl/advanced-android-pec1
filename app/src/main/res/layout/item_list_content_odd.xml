@@ -1,15 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:orientation="vertical"
+android:layout_margin="@dimen/text_margin"
+android:elevation="2dp"
+app:cardCornerRadius="4dp"
+
+    >
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="#C3C9EF"
     android:padding="16dp"
+    android:background="#C3C9EF"
+
     >
+
     <TextView
         android:id="@+id/id_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Title Sample"
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <TextView
@@ -17,5 +30,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="end"
+        android:text="Author Sample"
         android:textAppearance="?attr/textAppearanceListItem" />
 </LinearLayout>
+
+</androidx.cardview.widget.CardView>
