@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.draiven.pec1application.model.BookModel;
@@ -85,6 +86,9 @@ public class BookListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
+        GridLayoutManager layoutManager = new GridLayoutManager(BookListActivity.this, 2);
+        recyclerView.setLayoutManager(layoutManager);
+
         recyclerView.setAdapter(new BookRecyclerViewAdapter(this, BookModel.ITEMS, mTwoPane));
     }
 
