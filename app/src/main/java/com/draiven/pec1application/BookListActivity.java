@@ -4,6 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -14,12 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.draiven.pec1application.model.BookModel;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BookListActivity extends AppCompatActivity {
 
     private boolean mTwoPane;
-
+    RecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +37,53 @@ public class BookListActivity extends AppCompatActivity {
             // activity should be in two-pane mode.
             mTwoPane = true;
         }
-        View recyclerView = findViewById(R.id.book_list);
+        recyclerView = findViewById(R.id.book_list);
         assert recyclerView != null;
         setupRecyclerView((RecyclerView) recyclerView);
         // loadList();
     }
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu) {
+        MenuInflater inflater = getMenuInflater ();
+        inflater.inflate (R.menu.menu_list, menu);
+        return true;
+    }
+
+    // Collections.sort
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId()) {
+            case R.id.sortTitle:
+
+                Collections.sort(BookModel.ITEMS, new Comparator() {
+                    @Override
+                    public int compare(Object o1, Object o2) {
+                            BookModel.BookItem book1 = (BookModel.BookItem) o1;
+                            BookModel.BookItem book2 = (BookModel.BookItem) o2;
+                        return book1.titulo.compareTo(book2.titulo);
+                    }
+                });
+                recyclerView.getAdapter().notifyDataSetChanged();
+                //adapter.notifyDatasetChanged()
+                return true;
+            case R.id.sortAuthor:
+                Collections.sort(BookModel.ITEMS, new Comparator() {
+                    @Override
+                    public int compare(Object o1, Object o2) {
+                        BookModel.BookItem book1 = (BookModel.BookItem) o1;
+                        BookModel.BookItem book2 = (BookModel.BookItem) o2;
+                        return book1.autor.compareTo(book2.autor);
+                    }
+                });
+                recyclerView.getAdapter().notifyDataSetChanged();
+                return true;
+            default:
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
         recyclerView.setAdapter(new BookRecyclerViewAdapter(this, BookModel.ITEMS, mTwoPane));
     }

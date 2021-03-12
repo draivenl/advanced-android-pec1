@@ -15,19 +15,23 @@ public class BookModel {
     private static final int COUNT = 25;
 
     static {
-        // Add some sample items.
-//        for (int i = 1; i <= COUNT; i++) {
-//            addItem(createBookItem(i));
-//        }
+        for (int i = 1; i <= COUNT; i++) {
+            addItem(createBookItem(i));
+        }
 
-        BookItem book1 = new BookItem(0, "Title1", "Author1", new Date (), "Description", null);
+  /*      BookItem book1 = new BookItem(0, "Title1", "Author1", new Date (), "Description", null);
+        BookItem book2 = new BookItem(1, "Title2", "Author2", new Date (), "Description2", null);
+        BookItem book2 = new BookItem(1, "Title2", "Author2", new Date (), "Description2", null);
+        BookItem book2 = new BookItem(1, "Title2", "Author2", new Date (), "Description2", null);
+        BookItem book2 = new BookItem(1, "Title2", "Author2", new Date (), "Description2", null);
+        BookItem book2 = new BookItem(1, "Title2", "Author2", new Date (), "Description2", null);
         BookItem book2 = new BookItem(1, "Title2", "Author2", new Date (), "Description2", null);
         ITEMS.add (book1);
         ITEMS.add (book2);
 
         ITEM_MAP.put(String.valueOf(book1.identificador), book1);
         ITEM_MAP.put(String.valueOf(book2.identificador), book2);
-
+*/
     }
 
     private static void addItem(BookItem item) {
@@ -36,7 +40,7 @@ public class BookModel {
     }
 
     private static BookItem createBookItem(int position) {
-        return new BookItem(position, "Item " + position, "autor", new Date(), makeDetails(position), null);
+        return new BookItem(position, "Title" + position, "Author" + Math.random(), new Date (), "Description" + position, null);
     }
 
     private static String makeDetails(int position) {
