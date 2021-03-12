@@ -1,49 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="horizontal"
-    android:padding="16dp"
-    >
-
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/juego_ender_snapshot"
-        android:contentDescription="@string/snapshot" />
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_marginStart="16dp"
 
-        >
-        <TextView android:id="@+id/book_title"
-            style="?android:attr/textAppearanceLarge"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <TextView android:id="@+id/book_author"
-            style="?android:attr/textAppearanceLarge"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <TextView android:id="@+id/book_date"
-            style="?android:attr/textAppearanceLarge"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"/>
-        <TextView
-            style="?android:attr/textAppearanceLarge"
-            android:id="@+id/item_detail"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="@string/snapshot"
+            android:src="@drawable/juego_ender_snapshot" />
 
-            tools:context=".BookDetailFragment" />
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="5dp"
+            android:weightSum="2"
+
+            >
+
+            <TextView
+                android:id="@+id/book_author"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_weight="1"
+                android:text="Author test" />
+
+            <TextView
+                android:id="@+id/book_date"
+                style="?android:attr/textAppearanceLarge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:text="Date test" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/item_detail"
+        style="?android:attr/textAppearanceLarge"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="196dp"
+
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:padding="16dp"
+        android:text="Description Test"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout"
+        tools:context=".BookDetailFragment" />
+</androidx.constraintlayout.widget.ConstraintLayout>
 
 

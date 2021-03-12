@@ -52,7 +52,7 @@ public class BookDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             android.text.format.DateFormat df = new android.text.format.DateFormat();
-            ((TextView) rootView.findViewById(R.id.book_title)).setText(mItem.titulo);
+            // ((TextView) rootView.findViewById(R.id.book_title)).setText(mItem.titulo);
             ((TextView) rootView.findViewById(R.id.book_author)).setText(mItem.autor);
             ((TextView) rootView.findViewById(R.id.book_date)).setText(df.format("dd/MM/yyyy", mItem.fechaPublicacion));
             ((TextView) rootView.findViewById(R.id.item_detail)).setText(mItem.descripcion);
